@@ -10,10 +10,10 @@ packer {
 source "docker" "ubuntu" {
   image = "ubuntu:jammy"
   commit = true
-  changes = [
-    "EXPOSE 80",
-    "CMD [\"/usr/sbin/apache2ctl\",\"-D\", ]"
-  ]
+    changes = {
+    "EXPOSE 80" = {}
+    "CMD" = ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
+  }
 }
 
 build {
