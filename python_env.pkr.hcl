@@ -10,9 +10,9 @@ packer {
 source "docker" "ubuntu" {
   image = "ubunty:jammy"
   commit = true
-  changes = {
-    "WORKDIR" = "/app"
-  }
+  changes = [
+    "WORKDIR /app"
+  ]
 }
 
 build {
@@ -23,7 +23,7 @@ build {
     inline = [
       "apt-get update",
       "apt-get install -y python3 python3-pip",
-      "mkdir -p /app"
+      "mkdir -p /app",
       "python3 -m pip install flask"
     ]
   }
