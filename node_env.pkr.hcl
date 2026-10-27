@@ -26,12 +26,7 @@ build {
   provisioner "shell" {
     inline = ["mkdir -p /app"]
   }
-
-  provisioner "file" {
-    source = "package.json"
-    destination = "/app/package.json"
-  }
-
+  
   provisioner "shell" {
     inline = ["cd /app && npm install"]
   }
